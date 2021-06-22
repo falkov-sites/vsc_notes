@@ -1,0 +1,100 @@
+<div class="wrapper">
+    // е. нужно, чтобы открытым был только один spoiler__item (как в аккордеоне), добавл класс 'only-one-show'
+    <div class="spoiler only-one-show">
+
+        <div class="spoiler__item">
+            <div class="spoiler__item-title">Заголовок 1</div>
+            <div class="spoiler__item-content">
+                Далеко-далеко за словесными горами в стране гласных и согласных живут 
+                рыбные тексты. Наш свое лучше родного дал встретил, обеспечивает заглавных 
+            </div>
+        </div>
+
+        <div class="spoiler__item">
+            <div class="spoiler__item-title">Заголовок 2</div>
+            <div class="spoiler__item-content">
+                Далеко-далеко за словесными горами в стране гласных и согласных живут 
+                рыбные тексты. Наш свое лучше родного дал встретил, обеспечивает заглавных 
+            </div>
+        </div>
+        
+        <div class="spoiler__item">
+            <div class="spoiler__item-title">Заголовок 3</div>
+            <div class="spoiler__item-content">
+                Далеко-далеко за словесными горами в стране гласных и согласных живут 
+                рыбные тексты. Наш свое лучше родного дал встретил, обеспечивает заглавных 
+            </div>
+        </div>
+
+    </div>
+</div>
+
+// _spoiler.sass ==============================================================
+.wrapper
+    height: 100%
+    padding: 50px
+
+.spoiler
+
+.spoiler__item
+    margin: 0 0 20px 0
+
+.spoiler__item-title
+    text-transform: uppercase
+    letter-spacing: 2px
+    position: relative
+    padding: 0px 0px 0px 25px
+    cursor: pointer
+
+    &:before,
+    &:after
+        content: ''
+        width: 10px
+        height: 1px
+        background-color: #000
+        position: absolute
+        top: 8px
+        transition: all 0.3s ease 0s
+
+    &:before
+        transform: rotate(45deg)
+        left: 0
+
+    &:after
+        transform: rotate(-45deg)
+        left: 7px
+
+.spoiler__item-title.active:before,
+.spoiler__item-title.active:after
+    background-color: blue
+
+.spoiler__item-title.active:before
+    transform: rotate(-45deg)
+
+.spoiler__item-title.active:after
+    transform: rotate(45deg)
+
+.spoiler__item-content
+    padding: 10px 0 0 0
+    display: none
+
+
+// myscript.js ================================================================
+$(document).ready(function () {
+
+    // spoiler --------------
+    // $('.spoiler__item-title').click(function(event){
+    $('.spoiler__item-title').on('click', function(event) {
+
+        // е. нужно, чтобы открытым был только один (аккордеон), добавл класс 'only-one-show' в html
+        if($('.spoiler').hasClass('only-one-show')) {
+            $('.spoiler__item-title').not($(this)).removeClass('active');
+            $('.spoiler__item-content').not($(this).next()).slideUp(300);
+        }
+
+        $(this).toggleClass('active').next().slideToggle(300);
+    });
+    
+});
+
+

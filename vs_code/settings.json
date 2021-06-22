@@ -1,0 +1,70 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    "editor.wordWrapColumn": 200,
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "workbench.tree.indent": 26,
+
+    "workbench.colorCustomizations": {
+        "editor.background": "#2f2f2f",
+        "sideBar.background": "#252525",
+        "editor.lineHighlightBackground": "#383838",
+        "editor.selectionHighlightBackground": "#0077ff75",
+        "activityBar.activeBackground": "#65c89b",
+        "activityBar.activeBorder": "#945bc4",
+        "activityBar.background": "#65c89b",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#945bc4",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "statusBar.background": "#42b883",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#359268",
+        "titleBar.activeBackground": "#42b883",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#42b88399",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+
+    "editor.tokenColorCustomizations": {
+        "comments": "#888888",
+        "strings": "#95B184"
+    },
+
+    "files.autoSave": "onFocusChange",
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "intelephense.format.braces": "k&r",
+
+    // liveSassCompile ---------------
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",       // expanded(def) | compact | compressed | nested
+            "extensionName": ".min.css",  // .css(def) | .min.css
+            "savePath": "/css"     // "/assets/css/"
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false,
+    "[sass]": {
+        "editor.defaultFormatter": "syler.sass-indented"
+    },
+    "launch": {
+    
+        "configurations": [],
+        "compounds": []
+    },
+    "json.schemas": [
+    
+    ],
+    "terminal.integrated.tabs.enabled": true,
+    // liveSassCompile end ------------
+
+    // cursor
+    "editor.cursorSmoothCaretAnimation": true,
+
+    "peacock.color": "#42b883"
+
+
+}

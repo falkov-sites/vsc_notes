@@ -1,0 +1,112 @@
+// html =========================================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/swiper/swiper-bundle.css">                <!-- swiper -->
+    <link rel="stylesheet" href="css/mystyle.min.css">
+    <title>LinkEdin</title>
+</head>
+
+<body>
+
+    <div class="my-swiper-1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide my-swiper-1__slide">
+                <div class="my-swiper-1__img" data-swiper-parallax="20%"
+                    style="background-image: url(images/swiper/Chikago_1.jpg);">
+                </div>
+            </div>
+            <div class="swiper-slide my-swiper-1__slide">
+                <div class="my-swiper-1__img" data-swiper-parallax="20%"
+                    style="background-image: url(images/swiper/Chikago_2.jpg);">
+                </div>
+            </div>
+            <div class="swiper-slide my-swiper-1__slide">
+                <div class="my-swiper-1__img" data-swiper-parallax="20%"
+                    style="background-image: url(images/swiper/Chikago_3.jpg);">
+                </div>
+            </div>
+            <div class="swiper-slide my-swiper-1__slide">
+                <div class="my-swiper-1__img" data-swiper-parallax="20%"
+                    style="background-image: url(images/swiper/Chikago_4.jpg);">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script src="lib/swiper/swiper-bundle.js"></script>         <!-- swiper -->
+    <script src="js/myscript.js"></script>
+</body>
+
+</html>
+
+sass ============================================
+
+.my-swiper-1 
+    height: 100%
+    width: 75%
+    overflow: hidden
+    position: relative
+
+.my-swiper-1__slide 
+    height: 100%
+    overflow: hidden
+
+    &::before
+        content: ''
+        position: absolute
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, 0.4)
+        z-index: 2
+
+.my-swiper-1__img 
+    height: 100%
+    background-position: center
+    background-size: cover
+
+.swiper-button-next 
+    color: rgba(255, 255, 255, 0.2)
+
+
+// js ===========================================
+<script>
+const swiper_1 = new Swiper('.my-swiper-1', {
+    direction: 'horizontal',
+    loop: true,
+    autoplay: true, 
+    // effect: 'flip',
+    speed: 3000,
+    parallax: true,
+
+    mousewheel: {
+        invert: false,
+        forceToAxis: true,
+    },
+    
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+});
+</script>
+
+<a href="" class="myclass"></a>

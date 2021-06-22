@@ -1,0 +1,31 @@
+если нужно, например, подкрасить названия категорий:
+
+если использовать, как обычно - <?php the_category(); ?>, то вывод будет таким:
+
+<ul class="post-categories">
+	<li>
+        <a href="//localhost:3000/universal.dev/category/css/" rel="category tag">CSS</a>
+    </li>
+</ul>
+
+и здесь нет отдельных классов для категорий, которые можно окрасить по разному
+-------------------
+но если сделать так:
+
+<?php 
+    foreach ( get_the_category () as $category ) {
+        printf ( '<a href="%s" class="category-link %s">%s</a>', 
+            esc_url( get_category_link( $category ) ),
+            esc_html($category -> slug),
+            esc_html($category -> name)
+        );
+    }
+?>
+
+то вывод будет такой:
+
+<a href="//localhost:3000/universal.dev/category/css/" class="category-link css">CSS</a>
+
+и здесь у каждой категории будет свой класс (который равен ее слагу)
+тогда в css можно присваивать разные цвета
+

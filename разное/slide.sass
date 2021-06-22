@@ -1,0 +1,132 @@
+// html -------------------------------
+<div class="faq">
+    <div class="item">
+        <div class="ask">
+            1. Какой-то вопрос
+        </div>
+        <div class="answer">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="ask">
+            2. Какой-то вопрос
+        </div>
+        <div class="answer">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="ask">
+            3. Какой-то вопрос
+        </div>
+        <div class="answer">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+        </div>
+    </div>
+</div>
+
+
+// slide.sass -------------------------
+.fag .item
+    margin: 20px 0
+
+.fag .item .ask
+    font-size: 30px
+    margin-bottom: 10px
+    cursor: pointer
+   
+.fag .item .answer
+    background: #ff0
+    overflow: hidden
+    padding: 0 15px
+    display: none
+
+.open
+    display: block !important
+
+
+// slide.js ---------------------------
+window.addEventListener('load', function() {
+
+    let faq = document.querySelectorAll('.faq');
+
+    fag.addEventListener('click', function(e) {
+        if(e.target.classList.contains('ask')) {
+            slideToggle(e.target.nextElementSibling);
+        }
+    });
+});
+
+function slideToggle(el) {
+    if(el.jsAnimated === true) {
+        return;
+    }
+
+    el.jsAnimated = true;
+
+    if(el.classList.contains('open')) {
+        let animate = el.animate(
+            [
+                { height: el.clientHeight + 'px' },
+                { height: 0 }
+            ],
+            { duration: 500 }
+        );
+
+        animate.addEventListener('finish', function() {
+            el.jsAnimated = false;
+            el.classList.remove('open');
+        });
+    }
+    else {
+        el.classList.add('open');
+
+        let animate = el.animate(
+            [
+                { height: 0 },
+                { height: el.clientHeight + 'px' }
+            ],
+            { duration: 500 }
+        );
+
+        animate.addEventListener('finish', function() {
+            el.jsAnimated = false;
+        });
+    }
+}
+
+function slideToggle_2(el) {
+    if(el.jsAnimated === true) {
+        return;
+    }
+
+    el.jsAnimated = true;
+
+    let keyframes = [
+        { opacity: 1, transform: 'translateY(0)' },
+        { opacity: 0, transform: 'translateY(50px)' }
+    ];
+
+    if(el.classList.contains('open')) {
+        let animate = el.animate(keyframes, { duration: 500 });
+
+        animate.addEventListener('finish', function() { 
+            el.jsAnimated = false;
+            el.classList.remove('open');
+        });
+    }
+    else {
+        el.classList.add('open');
+        let animate = el.animate(keyframes, { duration: 500, direction: 'reverse' });
+
+        animate.addEventListener('finish', function() {
+            el.jsAnimated = false;
+        });
+    }
+}

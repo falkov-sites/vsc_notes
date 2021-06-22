@@ -1,0 +1,58 @@
+<div class="tabs">
+	// заголовки табов
+	<div class="tabs__captions">
+		<a class="tabs__caption tabs__caption--active" href="#tab-1">продажа</a>
+		<a class="tabs__caption" href="#tab-2">ограничение</a>
+		<a class="tabs__caption" href="#tab-3">закрепление</a>
+	</div>
+
+	// содержимое табов
+	<div class="tabs__contentbox">
+		<div class="tabs__content tabs__content--active" id="tab-1">
+			содержимое вкладки 1
+		</div>
+
+		<div class="tabs__content" id="tab-2">
+			содержимое вкладки 2
+		</div>
+
+		<div class="tabs__content" id="tab-3">
+			содержимое вкладки 3
+		</div>
+	</div>
+</div>
+
+// -------------------------------------------------
+
+.tabs
+	margin-bottom: 100px
+	
+.tabs__captions
+	margin-bottom: 120px
+
+.tabs__caption
+	font-size: 18px
+	line-height: 25
+
+.tabs__caption--active
+	border-bottom: 1px solid #303030
+
+.tabs__content
+	display: none
+
+.tabs__content--active
+	display: block
+
+// -------------------------------------------------
+
+$(function() {
+	$('.tabs__caption').on('click', function(e) {
+		e.preventDefault();
+
+		$('tabs__caption').removeClass('tabs__caption--active');
+		$(this).addClass('tabs__caption--active');
+
+		$('tabs__content').removeClass('tabs__content--active');
+		$($(this).attr('href')).addClass('tabs__content--active');
+	});
+});

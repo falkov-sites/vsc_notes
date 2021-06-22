@@ -1,0 +1,57 @@
+// index.html ===================================
+    <a href="#" class="scroll-to-top">
+        <img class="scroll-to-top__img" src="images/up-arrow.svg" alt="scroll to top">
+    </a>
+
+
+// _btn_scroll_to_toop.sass =====================
+.scroll-to-top
+    position: fixed
+    right: 15px
+    bottom: 15px
+    width: 40px
+    height: 40px
+    text-align: center
+    color: #fff
+    background-color: rgba(52, 58, 64, 0.5)
+    border-radius: 50%
+    opacity: 0
+    transition: opacity 0.3s ease
+    pointer-events: none
+
+.scroll-to-top__img
+    transition: opacity 0.3s ease
+
+    &:hover
+        transform:  scale(1.2);
+
+.scroll-to-top--show
+    opacity: 1
+    pointer-events: auto
+
+
+
+// myscript.js ==================================
+    
+window.addEventListener('load', function() {
+    let btn_scroll_to_top = document.querySelector('.scroll-to-top');
+
+    btn_scroll_to_top.addEventListener('click', function(){
+        window.scrollTo( {top: 0, behavior: 'smooth'});
+    });
+
+    window.addEventListener('scroll', function(){
+        let pos = window.pageYOffset;
+
+        if(pos > window.innerHeight) {
+            if( !(btn_scroll_to_top.classList.contains('scroll-to-top--show')) ) {
+                btn_scroll_to_top.classList.add('scroll-to-top--show');
+            }
+        }
+        else {
+            if( btn_scroll_to_top.classList.contains('scroll-to-top--show') )  {
+                btn_scroll_to_top.classList.remove('scroll-to-top--show');
+            }
+        }
+    });
+});

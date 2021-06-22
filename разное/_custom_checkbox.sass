@@ -1,0 +1,40 @@
+// html ===================================================
+<label>
+    <input class="checkbox__regular" type="checkbox">
+    <span class="checkbox__custom"></span>
+    <span class="checkbox__text">кастомный checkbox</span>
+</label>
+
+    
+// _custom_checkbox.sass ==================================
+label
+    display: flex
+
+.checkbox__regular
+    display: none
+
+    &:checked + .checkbox__custom:after
+        opacity: 1
+
+.checkbox__custom
+    height: 16px
+    width: 16px
+    border: 1px solid #000
+    border-radius: 50%
+    display: block
+    margin-right: 15px
+    position: relative
+
+    &:after
+        height: 8px
+        width: 8px
+        position: absolute
+        content: ''
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        background: #00f
+        transition: .3s all ease
+        border-radius: 50%
+        opacity: 0
+

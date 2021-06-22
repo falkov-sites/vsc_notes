@@ -1,0 +1,268 @@
+{
+    // html, php --------------------------------
+    "<?php $1 ?>": {
+        "scope": "html, php",
+        "prefix": "jj <?php $1 ?>",
+        "body": ["<?php $1 ?>"]
+    },
+
+    "vardump": {
+        "scope": "html, php",
+        "prefix": "jj vardump",
+        "body": ["<?php echo '<pre>'; var_dump( $1 ); echo '</pre>'; ?>"]
+    },
+
+    "img_picture": {
+        "scope": "html, php",
+        "prefix": "jj img_picture",
+        "body": [
+            "<picture class=\"$1\">",
+            "    <source srcset=\"images/bg.webp\" type=\"image/webp\" >",
+            "    <img src=\"images/bg.png\" srcset=\"images/bg.png\" alt=\"\">",
+            "</picture>"
+        ]
+    },
+
+    "img_placeholder": {
+        "scope": "html, php",
+        "prefix": "jj img_placeholder",
+        "body": ["<img src=\"https://via.placeholder.com/$1x$2\" alt=\"\" />"]
+    },
+
+    "img_random": {
+        "scope": "html, php",
+        "prefix": "jj img_random",
+        "body": ["<img src=\"https://picsum.photos/$1/$2\" alt=\"\" />"]
+    },
+
+    "if_img": {
+        "scope": "html, php",
+        "prefix": "jj if_img",
+        "body": ["<?php if($1) { ?>", "    <img src=\"<?php echo esc_url(); ?>\"  alt=\"\"/>", "<?php } ?>"]
+    },
+
+    // "items(nav)": {
+    //     "scope": "html, php",
+    //     "prefix": "jj items(nav)",
+    //     "body": [
+    //         "<nav class=\"$1\">",
+    //         "    <ul class=\"$1__list\">",
+
+    //         "        <li class=\"$1__item $1__item--active\">",
+    //         "            <a class=\"$1__link\" href=\"#\">item_1</a>",
+    //         "        </li>",
+
+    //         "        <li class=\"$1__item\">",
+    //         "            <a class=\"$1__link\" href=\"#\">item_2</a>",
+    //         "        </li>",
+
+    //         "        <li class=\"$1__item\">",
+    //         "            <a class=\"$1__link\" href=\"#\">item_3</a>",
+    //         "        </li>",
+
+    //         "    </ul>",
+    //         "</nav>"
+    //     ]
+    // },
+
+    "nav.menu": {
+        "scope": "html, php",
+        "prefix": "jj nav.menu",
+        "body": [
+            "<nav class=\"menu header__menu\">",
+            "    <ul class=\"menu__list\">",
+            "        <li class=\"menu__item menu__item--active\">",
+            "            <a class=\"menu__link\" href=\"#\">item_1</a>",
+            "        </li>",
+            "        <li class=\"menu__item\">",
+            "            <a class=\"menu__link\" href=\"#\">item_2</a>",
+            "        </li>",
+
+            "        <li class=\"menu__item\">",
+            "            <a class=\"menu__link\" href=\"#\">item_3</a>",
+            "        </li>",
+            "    </ul>",
+            "",
+            "    <div class=\"menu__burger\">",
+            "        <span></span>",
+            "    </div>",
+            "</nav>"
+        ]
+    },
+
+    "loop(WP_Query)": {
+        "scope": "html, php",
+        "prefix": "jj loop(WP_Query)",
+        "body": [
+            "<!-- the LOOP : begin --> ",	
+            "<?php",	
+            "// global $$post;",
+            "",
+            "$$query = new WP_Query( [",
+            "    'posts_per_page' => 5,",
+            "    'category_name' => 'investigation',",
+            "    'orderby' => 'comment_count',",
+            "] );",
+            "",
+            "if ( $$query->have_posts() ) {",
+            "    while ( $$query->have_posts() ) {",
+            "        $$query->the_post();",
+            "        ?>",
+            "        <!-- posts : begin -->",
+            "        <?php echo get_the_permalink(); ?>",
+            "        <?php the_post_thumbnail_url(); ?>",
+            "",
+            "        <img",
+            "            class=\"thumbnail\"",
+            "            src=\"<?php the_post_thumbnail_url(); ?>\" ",
+            "            src=\"<?php echo get_template_directory_uri() . '/assets/images/asdf.svg'; ?>\" ",
+            "            alt=\"<?php echo mb_strimwidth(get_the_title(), 0, 20, '...'); ?>",
+            "        />",
+            "",
+            "        <?php echo mb_strimwidth(get_the_title(), 0, 55, '...'); ?>",
+            "",
+            "        <?php the_author(); ?>",
+            "        <?php $$author_id = get_the_author_meta('ID'); ?>",
+            "        <?php echo get_author_posts_url( $$author_id ); ?>",
+            "        <?php echo get_avatar_url( $$author_id ); ?>",
+            "",
+            "        <?php comments_number( '0', '1', '%' ); ?>",
+            "        <?php the_time('j F'); ?>",
+            "        <!-- posts : end -->",
+            "        <?php ",
+            "    }",
+            "} else { /* нет постов */ }",
+            "wp_reset_postdata();",
+            "?>",
+            "<!-- the LOOP : end --> "
+        ]
+    },
+
+    "svg": {
+        "scope": "html, php",
+        "prefix": "jj svg",
+        "body": [
+            "<svg class=\"icon\" width=\"___\" height=\"___\" fill=\"___\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">",
+            "    <use xlink:href=\"<?php echo get_template_directory_uri();?>/assets/images/sprite.svg#___\"></use>",
+            "</svg>"
+        ]
+    },
+
+    "if(has_post_thumb)": {
+        "scope": "html, php",
+        "prefix": "jj if(has_post_thumb)",
+        "body": [
+            "<img",
+            "    class=\"post-thumb\" ",
+            "    src=\"<?php if ( has_post_thumbnail() ) { ?>",
+            "        <?php the_post_thumbnail_url(); ?> ",
+            "        <?php } else { echo get_template_directory_uri();?>/assets/images/default.svg<?php } ?>\"",
+            "    alt=\"<?php the_title(); ?>\"",
+            "/>"
+        ]
+    },
+
+    "mb_strimwidth": {
+        "scope": "html, php",
+        "prefix": "jj mb_strimwidth",
+        "body": [
+            "<?php echo mb_strimwidth(get_the_title(), 0, 50, '...'); ?>"
+        ]
+    },
+
+    "custom_field": {
+        "scope": "html, php",
+        "prefix": "jj custom_field",
+        "body": [
+            "<?php echo get_post_meta(get_the_ID(), 'cf_email$1', true) ?>"
+        ]
+    },
+
+    // sass, scss, css --------------------------------
+    "padding 0 0 0 0": {
+        "scope": "sass",
+        "prefix": "jj padding: 0px 0px 0px 0px",
+        "body": [
+            "padding: 0px 0px 0px 0px"
+        ]
+    },
+
+    "margin 0 0 0 0": {
+        "scope": "sass",
+        "prefix": "jj margin: 0px 0px 0px 0px",
+        "body": [
+            "margin: 0px 0px 0px 0px"
+        ]
+    },
+
+    "img_adaptive": {
+        "scope": "sass",
+        "prefix": "jj img_adaptive",
+        "body": [
+            "img {",
+            "    position: absolute;",
+            "    width: 100%;",
+            "    height: 100%;",
+            "    top: 0px;",
+            "    left: 0px;",
+            "    object-fit: cover;",
+            "    // object-position: center top;",
+            "}"
+        ]
+    },
+
+    "wh:100% trbl:0": {
+        "scope": "sass",
+        "prefix": "jj wh:100% trbl:0",
+        "body": [
+            "    width: 100%",
+            "    height: 100%",
+            "    top: 0px",
+            "    right: 0px",
+            "    bottom: 0px",
+            "    left: 0px",
+        ]
+    },
+
+    "": {
+        "scope": "sass",
+        "prefix": "jj gtc",
+        "body": [
+            "grid-template-columns: repeat(auto-fit, minmax(263px, 1fr))",
+        ]
+    },
+
+
+    // шрифты из макета, брать из _fonts.sass ---
+    "font Roboto Slab": {
+        "scope": "sass",
+        "prefix": "jj font Roboto Slab",
+        "body": [
+            "'Roboto Slab', sans-serif",
+        ]
+    },
+
+    "font Lato Regular": {
+        "scope": "sass",
+        "prefix": "jj font Lato Regular",
+        "body": [
+            "'Lato Regular', sans-serif",
+        ]
+    },
+
+    "font Lato Black": {
+        "scope": "sass",
+        "prefix": "jj font Lato Black",
+        "body": [
+            "'Lato Black', sans-serif",
+        ]
+    },
+
+    
+    // js ---------------------------------------
+    "jquery_ready": {
+        "scope": "javascript",
+        "prefix": "jj jquery_ready",
+        "body": ["$(document).ready(function () {", "    $1", "});"]
+    }
+}

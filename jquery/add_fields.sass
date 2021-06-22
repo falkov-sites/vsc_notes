@@ -1,0 +1,25 @@
+<div class="items">
+    <div class="item">
+        <input type="text" class="check">
+    </div>
+    <div class="item">
+        <input type="text" class="check">
+    </div>
+    <div class="item">
+        <input type="text" class="check">
+    </div>
+</div>
+
+<input type="button" value="Добавить поле" class="addField">
+
+// --------------------------
+
+$(function() {
+
+    $('.addField').on('click', function() {
+        let $div = $('<div/>').addClass('item');                             // создает новый элемент jq тег div (угловые скобки)
+        $('<input>').attr('type', 'text').addClass('check').appendTo($div);  // создает новый input и добавляет его в $div 
+        $('.items').append($div);                                            // добавл $div в конец .items
+    });
+    
+});

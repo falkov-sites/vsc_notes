@@ -1,0 +1,79 @@
+// index.html ===================================
+    <div class="popup" id="popup-1">
+        <div class="popup__overlay">
+            <div class="popup__body">
+                <a href="" class="popup__close">✕</a>
+
+                <h3>Заголовок модального окна</h3>
+
+                <p>
+                    Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    
+ // _popup.sass ===================================   
+.popup
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    display: none
+
+.popup__overlay
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: #000000c4
+
+.popup__body
+    position: relative
+    width: 400px
+    background-color: #fff
+    border-radius: 5px
+    padding: 20px
+
+.popup__close
+    position: absolute
+    color: #0011ff
+    background-color: #8e96dd94
+    font-weight: bold
+    right: 10px
+    top: 10px
+    padding: 5px 7px
+    border-radius: 5px
+
+.popup--show
+    display: block
+
+
+// myscript.js ==================================
+    
+    // popup ----------------------------------------------
+    $('a.btn__show-popup').click(function(e) {
+        e.preventDefault();
+
+        var _popup = $(this).attr("href");
+
+        $(_popup).addClass('popup--show');
+        $('body').addClass('body--lock');
+
+        $(_popup + ' .popup__body').click((e) => {
+            e.stopPropagation(); // чтобы не закрывалось при клике на popup окно (чтобы событие не уходило на popup__overlay)
+        });
+
+        // закрытие popup окна при клике на кнопку закрытия или оверлей
+        $(_popup + ' .popup__close,' + _popup + ' .popup__overlay').click((e) => {
+            e.preventDefault();
+            $(_popup).removeClass('popup--show');
+            $('body').removeClass('body--lock');
+        });
+    });

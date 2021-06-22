@@ -1,0 +1,85 @@
+// лучше использовать scss, т.к. в нем можно использовать отступы для более наглядного форматирования src, а в sass отступы используются вместо {} 
+
+$font_path: '../fonts/NeueMachina/';
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: local('Neue Machina Ultralight'), local('NeueMachina-Ultralight'),
+        url($font_path + 'NeueMachina-Ultralight.woff2') format('woff2'),
+        url($font_path + 'NeueMachina-Ultralight.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: local('Neue Machina Light'), local('NeueMachina-Light'),
+        url($font_path + 'NeueMachina-Light.woff2') format('woff2'),
+        url($font_path + 'NeueMachina-Light.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: local('Neue Machina Black'), local('NeueMachina-Black'),
+        url($font_path + 'NeueMachina-Black.woff2') format('woff2'),
+        url($font_path + 'NeueMachina-Black.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: local('Neue Machina Regular'), local('NeueMachina-Regular'),
+        url($font_path + 'NeueMachina-Regular.woff2') format('woff2'),
+        url($font_path + 'NeueMachina-Regular.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: local('Neue Machina Bold'), local('NeueMachina-Bold'),
+        url($font_path + 'NeueMachina-Bold.woff2') format('woff2'),
+        url($font_path + 'NeueMachina-Bold.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: local('Neue Machina Medium'), local('NeueMachina-Medium'),
+        url($font_path + 'NeueMachina-Medium.woff2') format('woff2'),
+        url($font_path + 'NeueMachina-Medium.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: local('Neue Machina Ultrabold'), local('NeueMachina-Ultrabold'),
+        url($font_path + 'NeueMachina-Ultrabold.woff2') format('woff2'),
+        url($font_path + 'NeueMachina-Ultrabold.woff') format('woff');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 800;
+}
+
+// =================================
+// @import my_normalize
+// @import fonts
+
+// .test_fonts
+//     font-family: Neue Machina
+//     font-style: normal
+//     font-weight: 900
+//     font-size: 36px
+//     line-height: 100%
+//     color: red;

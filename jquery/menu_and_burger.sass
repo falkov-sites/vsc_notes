@@ -1,0 +1,187 @@
+// index.html ===================================
+<nav class="menu header__menu">
+    <ul class="menu__list">
+        <li class="menu__item menu__item--active">
+            <a class="menu__link" href="#">feed</a>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link" href="#">network</a>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link" href="#">jobs привет, как дела</a>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link" href="#">chat</a>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link" href="#">notices</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="menu__burger">
+    <span></span>
+</div>
+
+
+// _menu_and_burger.sass =============================================
+$menu_color: #333333
+
+.menu
+    position: relative
+
+.menu__list
+    display: flex
+    flex-direction: row
+
+.menu__item
+    position: relative  // for ::after
+
+    & + &
+        margin: 0
+        padding: 0
+        margin-left: 50px
+            
+    &::after
+        content: ""
+        display: block
+        position: absolute
+        height: 2px
+        width: 0
+        background-color: $menu_color
+        opacity: 0.5
+        bottom: -3px
+        left: 50%
+        transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+
+    &:hover::after
+        width: 100%
+        left: 0
+
+.menu__link
+    color: $menu_color
+
+// ----------------
+.menu--blue
+    $menu_color: #0000ff
+
+    .menu__item::after
+        background-color: $menu_color
+
+    .menu__link
+        color: $menu_color
+
+
+// burger ---
+$burger_color: #333333
+$burger_height: 19px        // высота бургера
+$burger_stripe_height: 3px  // толщина полос
+$burger_middle_stripe_top: $burger_height / 2 - $burger_stripe_height / 2  // чтобы средняя полоса была посередине
+
+=burger_mixin_transition
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+
+.menu__burger
+    display: none
+    position: relative
+    width: 30px
+    height: $burger_height
+
+    & span
+        background-color: $burger_color
+        position: absolute
+        width: 100%
+        height: $burger_stripe_height
+        left: 0
+        top: $burger_middle_stripe_top
+        +burger_mixin_transition
+
+    &:before, &:after
+        content: ''
+        background-color: $burger_color
+        position: absolute
+        width: 100%
+        height: $burger_stripe_height
+        left: 0
+        +burger_mixin_transition
+
+    &:before
+        top: 0
+
+    &:after
+        bottom: 0
+
+    &.active:before
+        transform: rotate(45deg) // 225
+        top: $burger_middle_stripe_top
+
+    &.active:after
+        transform: rotate(-45deg)
+        bottom: $burger_middle_stripe_top
+
+    &.active span
+        transform: scale(0)
+
+
+// меньше 767px появится бургер, а меню перестроится
+@media screen and ( max-width: 767px )
+    // body.lock
+    //     overflow: hidden
+
+    .menu__burger
+        display: block
+        margin-left: auto  // выравнивает бургер по правому краю
+
+    // позиционируем, перестраиваем и скрываем меню
+    .menu__list
+        flex-direction: column
+        align-items: flex-start
+        position: absolute
+        top: 55px
+        box-shadow: 2px 2px 10px rgba(#000, 0.3)
+        border-radius: 10px
+        background-color: #eeeeee
+        padding: 10px
+        // margin: 10px
+        // +burger_mixin_transition
+        transition: all 0.5s ease
+        opacity: 0%
+        overflow: auto
+        z-index: 99
+
+    .menu__list.active
+        opacity: 100%  // показать меню
+
+    // .menu__item
+    //     margin: 0
+    //     padding: 0
+
+    .menu__item + .menu__item
+        margin: 0
+        padding: 0
+        margin-top: 25px
+
+// myscript.js ==================================================================
+$(document).ready(function() {
+    
+    // burger -------------------------
+    $('.menu__burger').click(function(e) {
+        $('.menu__burger, .menu__list').toggleClass('active');
+        $('body').toggleClass('lock');  // отключить скрол контента под меню (юзабилити)
+    });
+
+    $('.menu__link').click(function(e){
+        // e.preventDefault();
+        $('body').removeClass('lock'); 
+        $('.menu__burger, .menu__list').toggleClass('active');
+    });
+});
+
+// ==================================================================
+// ==================================================================
+
+ подключить jquery:
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/myscript.js"></script>
+</body>

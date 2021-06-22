@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/mystyle.min.css">
+    <title>LinkEdin</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="menu header__menu">
+            <ul class="menu__list">
+                <li class="menu__item menu__item--active">
+                    <a class="menu__link" href="#">item_1</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#">item_2</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#">item_3</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <footer class="footer">
+        <nav class="menu footer__menu menu--red">
+            <ul class="menu__list">
+                <li class="menu__item menu__item--active">
+                    <a class="menu__link" href="#">item_1</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#">item_2</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="#">item_3</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
+
+// _menu.sass -----------------------------------
+.menu
+    $menu_color: #323233
+
+    .menu__list
+        display: flex
+
+    .menu__item
+        position: relative
+        list-style: none
+
+        &:not(:last-child)
+            margin-right: 50px
+
+        &::after
+            content: ""
+            display: block
+            position: absolute
+            height: 2px
+            width: 0
+            background-color: $menu_color
+            opacity: 0.5
+            bottom: -3px
+            left: 50%
+            transition: all 0.2s linear 0s
+
+        &:hover::after
+            width: 100%
+            left: 0
+
+    .menu__link
+        text-decoration: none
+        color: $menu_color
+
+.menu--green
+    $menu_color: #00ff00
+
+    .menu__item::after
+        background-color: $menu_color
+
+    .menu__link
+        color: $menu_color
+
+.menu--blue
+    $menu_color: #1100ff
+
+    .menu__item::after
+        background-color: $menu_color
+
+    .menu__link
+        color: $menu_color
+
+.menu--red
+    $menu_color: #ff3300
+
+    .menu__item::after
+        background-color: $menu_color
+
+    .menu__link
+        color: $menu_color
+
+// _header.sass ---------------------------------
+.header__menu
+    padding-left: 30px
+
+// _footer.sass ---------------------------------
+.footer__menu
+    padding-left: 70px
