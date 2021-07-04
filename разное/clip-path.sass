@@ -1,0 +1,23 @@
+// html ---------------------
+<div class="card-wrapper">
+    <div class="card-body">
+    </div>
+</div>
+
+
+// sass ---------------------
+.card-wrapper
+    height: 200px
+    width: 300px
+    margin: 30px
+
+    &:hover .card-body
+        background-color: #dcdf25
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+
+.card-body 
+    background-color: #27a8f3
+    height: 100%
+    width: 100%
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+    transition: all 0.3s;
