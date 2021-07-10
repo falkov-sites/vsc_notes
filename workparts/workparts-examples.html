@@ -1,0 +1,31 @@
+================================================================ tabs
+добавляем к нашей разметке классы: 
+_active         - какой таб сейчас активен (стиль выделенного таба, задаем сами)
+_tabs           - технический класс для контейнера табов                            - из 'workparts.sass'
+_tabs__caption  - технический класс для каждого заголовка таба (навигация по табам) - из 'workparts.sass'
+_tabs__block    - технический класс для каждого блока таба                          - из 'workparts.sass'
+
+<div class="mytabs _tabs">                                              // _tabs
+    <nav class="mytabs__nav">
+        <div class="mytabs__caption _tabs__caption _active">Tab 1</div> //  _tabs__caption  _active
+        <div class="mytabs__caption _tabs__caption">Tab 2</div>         //  _tabs__caption
+        <div class="mytabs__caption _tabs__caption">Tab 3</div>         //  _tabs__caption
+    </nav>
+
+    <div class="mytabs__body">
+        <div class="mytabs__block _tabs__block _active">                // _tabs__block  _active
+            [Tab 1] Lorem ipsum dolor, sit amet consectetur
+            Lorem ipsum dolor, sit amet consectetur
+        </div>
+
+        <div class="mytabs__block _tabs__block">                        // _tabs__block
+            [Tab 2] Lorem ipsum dolor, sit amet consectetur
+            Lorem ipsum dolor, sit amet consectetur
+        </div>
+
+        <div class="mytabs__block _tabs__block">                        // _tabs__block
+            [Tab 3] Lorem ipsum dolor, sit amet consectetur
+            Lorem ipsum dolor, sit amet consectetur
+        </div>
+    </div>
+</div>
