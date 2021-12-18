@@ -1,3 +1,5 @@
+// ~/Library/Application Support/Code/User/settings.json
+
 {
     "workbench.colorTheme": "Default Dark+",
     "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
@@ -10,21 +12,8 @@
         "editor.background": "#2f2f2f",
         "sideBar.background": "#252525",
         "editor.lineHighlightBackground": "#383838",
-        "editor.selectionHighlightBackground": "#0077ff75",
-        "activityBar.activeBackground": "#65c89b",
-        "activityBar.activeBorder": "#945bc4",
-        "activityBar.background": "#65c89b",
-        "activityBar.foreground": "#15202b",
-        "activityBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.background": "#945bc4",
-        "activityBarBadge.foreground": "#e7e7e7",
-        "statusBar.background": "#42b883",
-        "statusBar.foreground": "#15202b",
-        "statusBarItem.hoverBackground": "#359268",
-        "titleBar.activeBackground": "#42b883",
-        "titleBar.activeForeground": "#15202b",
-        "titleBar.inactiveBackground": "#42b88399",
-        "titleBar.inactiveForeground": "#15202b99"
+        "editor.selectionHighlightBackground": "#0077ff75", // подсветка таких же, как выделенный текст
+        "tab.activeBackground": "#535353"
     },
 
     "editor.tokenColorCustomizations": {
@@ -33,9 +22,9 @@
     },
 
     "files.autoSave": "onFocusChange",
-    "[php]": {
-        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
-    },
+    // "[php]": {
+    //     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    // },
     "intelephense.format.braces": "k&r",
 
     // liveSassCompile ---------------
@@ -51,7 +40,6 @@
         "editor.defaultFormatter": "syler.sass-indented"
     },
     "launch": {
-    
         "configurations": [],
         "compounds": []
     },
@@ -61,10 +49,17 @@
     "terminal.integrated.tabs.enabled": true,
     // liveSassCompile end ------------
 
-    // cursor
+    // плавное появление печатаемого текста
     "editor.cursorSmoothCaretAnimation": true,
 
-    "peacock.color": "#42b883"
-
+    "ecsstractor_port.bem_nesting": true,
+    "ecsstractor_port.brackets_newline_after": false,
+    "ecsstractor_port.brackets": false,
+    "ecsstractor_port.empty_line_before_nested_selector": false,
+    "ecsstractor_port.indentation": "  ",
+    "ecsstractor_port.modifier_separator": "--",
+    
+    "workbench.startupEditor": "none",
+    "editor.renderWhitespace": "all"
 
 }

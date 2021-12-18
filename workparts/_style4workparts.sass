@@ -1,7 +1,7 @@
 // ============================================== tabs
-
 .mytabs
-
+    margin: 0px 0px 30px 0px
+    
     // .mytabs__nav
     &__nav
         display: flex
@@ -26,3 +26,45 @@
 
     // .mytabs__block
     &__block
+
+
+// ============================================== spoiler
+.spoiler-block
+
+    // .spoiler-block__item
+    &__item
+
+    // .spoiler-block__title
+    &__title
+        background-color: #ee9b9b
+        cursor: pointer
+        padding: 20px
+        position: relative
+
+        &::before
+            content: ""
+            width: 20px
+            background-color: #fff
+            height: 2px
+            transform: translate(0, -50%) rotate(-45deg)
+            position: absolute
+            right: 15px
+            top: 50%
+
+        &::after
+            content: ""
+            width: 20px
+            background-color: #fff
+            height: 2px
+            transform: translate(0, -50%) rotate(45deg)
+            position: absolute
+            right: 29px
+            top: 50%
+           
+    // .spoiler-block__body
+    &__body
+        // display: none
+        padding: 10px 0px 0px 0px
+
+
+// ============================================== 
